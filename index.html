@@ -7,6 +7,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,700;1,9..144,500&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
+  
   :root {
     --cream: #FFF9F2;
     --peach: #FFE6D3;
@@ -144,6 +145,80 @@
     background: var(--coral);
     border-radius: 50%;
     animation: pulseGlow 1.8s ease-in-out infinite;
+  }
+
+  .hero-top {
+    display: flex;
+    align-items: flex-start;
+    gap: 40px;
+    justify-content: space-between;
+  }
+  .hero-photo-wrap {
+    flex-shrink: 0;
+    position: relative;
+    width: 240px;
+  }
+  .hero-photo-ring {
+    position: absolute;
+    inset: -16px;
+    border: 1.5px dashed rgba(255, 107, 74, 0.45);
+    border-radius: 68% 32% 39% 61% / 45% 40% 60% 55%;
+    animation: ringSpin 24s linear infinite;
+  }
+  @keyframes ringSpin {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+  }
+  .hero-photo {
+    width: 240px;
+    height: 240px;
+    border-radius: 63% 37% 30% 70% / 50% 45% 55% 50%;
+    background: var(--peach);
+    border: 3px solid var(--coral);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    box-shadow: 0 20px 40px -18px rgba(45,27,78,0.35);
+    position: relative;
+    transition: border-radius 0.6s ease;
+  }
+  .hero-photo:hover {
+    border-radius: 50%;
+  }
+  .hero-photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+  .hero-photo-placeholder {
+    text-align: center;
+    color: var(--plum-soft);
+    font-size: 0.85rem;
+    font-weight: 500;
+    line-height: 1.4;
+    padding: 0 24px;
+  }
+  .hero-photo-placeholder span {
+    display: block;
+    font-size: 2rem;
+    margin-bottom: 6px;
+  }
+  @media (max-width: 860px) {
+    .hero-top {
+      flex-direction: column-reverse;
+      align-items: flex-start;
+      gap: 40px;
+    }
+    .hero-photo-wrap {
+      width: 180px;
+      align-self: center;
+    }
+    .hero-photo {
+      width: 180px;
+      height: 180px;
+    }
   }
 
   .hero h1 {
@@ -383,6 +458,38 @@
   }
   .sos-caption { color: #D9CCF5; font-size: 0.85rem; text-align: center; max-width: 220px; line-height: 1.5; }
 
+  .work-photos {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    height: 100%;
+  }
+  .work-photo-slot {
+    flex: 1;
+    min-height: 120px;
+    border: 2px dashed rgba(45,27,78,0.25);
+    border-radius: 16px;
+    background: rgba(45,27,78,0.03);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    color: var(--plum-soft);
+    font-size: 0.85rem;
+    font-weight: 500;
+    overflow: hidden;
+  }
+  .work-photo-slot span {
+    font-size: 1.8rem;
+  }
+  .work-photo-slot img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+
   @media (max-width: 760px) {
     .project-card { grid-template-columns: 1fr; padding: 32px; }
   }
@@ -449,10 +556,12 @@
 </head>
 <body>
 
+
 <nav>
   <div class="nav-name">Ann Mary K A</div>
   <ul class="nav-links">
     <li><a href="#about">About</a></li>
+    <li><a href="#internship">Internship</a></li>
     <li><a href="#skills">Skills</a></li>
     <li><a href="#projects">Projects</a></li>
     <li><a href="#contact">Contact</a></li>
@@ -462,7 +571,18 @@
 <!-- HERO -->
 <section class="hero">
   <div class="eyebrow">2nd Year &middot; Integrated MSc CS (AI &amp; ML)</div>
-  <h1>Curious about <em>everything</em> in computer science —<br>and building things along the way.</h1>
+  <div class="hero-top">
+    <h1>Curious about <em>everything</em> in computer science —<br>and building things along the way.</h1>
+    <div class="hero-photo-wrap">
+      <div class="hero-photo-ring"></div>
+      <div class="hero-photo">
+        <!-- To add your photo: replace this placeholder div with
+             <img src="your-photo.jpg" alt="Ann Mary K A">
+             Recommended: a square image, at least 440x440px. -->
+        <img src="croped iamge.jpg" alt="Ann Mary K A">
+      </div>
+    </div>
+  </div>
   <p class="hero-sub">I'm Ann Mary K A, an aspiring data scientist and developer who hasn't picked a lane yet — because I'm still exploring all of them. Apps, websites, AI, data — if it involves solving a problem with code, I'm in.</p>
   <div class="hero-cta">
     <a href="#projects" class="btn btn-primary">See what I've built →</a>
@@ -502,10 +622,31 @@
   </div>
 </section>
 
+<!-- INTERNSHIP -->
+<section class="internship" id="internship">
+  <div class="section-head">
+    <span class="section-num">02</span>
+    <h2>Internship</h2>
+  </div>
+  <div class="project-card fade-up" style="grid-template-columns: 1fr;">
+    <div>
+      <div class="project-status">In progress</div>
+      <h3>Big Data and Business Management Intern</h3>
+      <p class="team-note">IBM SkillsBuild</p>
+      <p class="desc">Currently participating in the Big Data and Business Management internship offered through IBM SkillsBuild. This internship focuses on understanding how organizations collect, manage, and analyze large volumes of data to support business decision-making. Through hands-on learning and practical activities, I am developing foundational knowledge in data analytics, business intelligence, data-driven decision-making, and modern industry practices. The program is also strengthening my problem-solving, analytical thinking, and professional skills while providing exposure to real-world business and data management concepts.</p>
+      <div class="tag-row">
+        <span class="tag">Big Data</span>
+        <span class="tag">Business Intelligence</span>
+        <span class="tag">Data-Driven Decision Making</span>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- SKILLS -->
 <section id="skills">
   <div class="section-head">
-    <span class="section-num">02</span>
+    <span class="section-num">03</span>
     <h2>Skills &amp; tools</h2>
   </div>
   <div class="skills-wrap">
@@ -537,13 +678,22 @@
         <span class="tag">Cloud tools</span>
       </div>
     </div>
+    <div class="skill-card fade-up">
+      <div class="icon-badge" style="background: rgba(255,182,39,0.18); color: #B87E00;">📊</div>
+      <h3>Data &amp; Analytics</h3>
+      <div class="tag-row">
+        <span class="tag">Power BI</span>
+        <span class="tag">[e.g. Excel]</span>
+        <span class="tag">[e.g. SQL]</span>
+      </div>
+    </div>
   </div>
 </section>
 
 <!-- PROJECTS -->
 <section class="projects" id="projects">
   <div class="section-head">
-    <span class="section-num">03</span>
+    <span class="section-num">04</span>
     <h2>Projects</h2>
   </div>
   <div class="project-card fade-up">
@@ -563,17 +713,39 @@
       <p class="sos-caption">One press → live location sent instantly to saved emergency contacts via SMS</p>
     </div>
   </div>
+
+  <div class="project-card fade-up" style="margin-top: 40px;">
+    <div>
+      <div class="project-status">In progress</div>
+      <h3>Power BI Dashboard Projects</h3>
+      <p class="team-note">Power BI Project</p>
+      <p class="desc">Designed and developed interactive Power BI dashboards by transforming raw datasets into meaningful visual reports. Applied data cleaning, data modeling, and visualization techniques to uncover trends, monitor key performance indicators (KPIs), and generate actionable business insights. Built dynamic dashboards using charts, tables, slicers, filters, and interactive visuals to improve data exploration and support informed decision-making. These projects strengthened my skills in business intelligence, analytical thinking, and presenting complex data in a clear, user-friendly format.</p>
+      <div class="tag-row">
+        <span class="tag">Power BI</span>
+        <span class="tag">Data Cleaning &amp; Modeling</span>
+        <span class="tag">KPI Dashboards</span>
+      </div>
+    </div>
+    <div class="work-photos">
+      <div class="work-photo-slot">
+  <img src="IMG-20260307-WA0002.jpg" alt="Power BI dashboard screenshot 1">
+</div>
+<div class="work-photo-slot">
+  <img src="IMG-20260309-WA0002.jpg" alt="Power BI dashboard screenshot 2">
+</div>
+    </div>
+  </div>
 </section>
 
 <!-- CONTACT -->
 <section class="contact" id="contact">
   <div class="section-head" style="justify-content: center;">
-    <span class="section-num">04</span>
+    <span class="section-num">05</span>
   </div>
   <h2>Let's build something, or just talk code.</h2>
   <p class="sub">Whether it's a project, an opportunity, or just a conversation about AI and data science — I'd love to hear from you.</p>
   <div class="contact-links">
-    <a href="mailto:your.email@example.com" class="icon-link">✉️ Email</a>
+    <a href="mailto:your.email@example.com" class="icon-link">✉️ Efmail</a>
     <a href="https://www.linkedin.com/in/ann-mary-k-a-604209368" class="icon-link" target="_blank" rel="noopener">💼 LinkedIn</a>
     <a href="https://github.com/annmaryka28-art" class="icon-link" target="_blank" rel="noopener">🐙 GitHub</a>
   </div>
